@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "DreamLineupApplication",
+      "request": "launch",
+      "mainClass": "com.nhl.dream_lineup.DreamLineupApplication",
+      "projectName": "dream-lineup"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-DreamApplication<dream>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.nhl.dream.DreamApplication",
+      "projectName": "dream",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+export type Players = {
+  name: string;
+  season: string;
+  team: string;
+  position: string;
+  gamePlayed: number;
+  goals: number;
+  assists: number;
+  points: number;
+  plusMinus: number;
+  pointsPerGame: number;
+  penalityMinutes: number;
+  evenStrengthGoals: number;
+  evenStrengthPoints: number;
+  shorthandedGoals: number;
+  shorthandedPoints: number;
+  overtimeGoals: number;
+  gameWinningGoals: number;
+  shots: number;
+  shootingPercentage: number;
+  timeOnIce: string;
+  faceoffWinsPercentage: number;
+};
