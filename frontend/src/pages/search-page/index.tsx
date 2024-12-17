@@ -9,8 +9,9 @@ import { Input } from "@/components/ui/input";
 const SearchPage = () => {
   const [players, setPlayers] = useState<Players[]>();
   const [searchText, setSearchText] = useState("");
+  const [filteredPlayers, setFilteredPlayers] = useState<Players[] | null>();
 
-  const { isPending } = useQuery({
+  const { data, isPending } = useQuery({
     queryKey: ["players"],
     queryFn: async () => {
       const response = await fetch(
@@ -18,6 +19,7 @@ const SearchPage = () => {
       );
       const data = await response.json();
       setPlayers(data.data.players);
+      return data;
     },
   });
 
@@ -27,6 +29,13 @@ const SearchPage = () => {
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
+    setFilteredPlayers(() => {
+      return players
+        ? players.filter((player) =>
+            player.name.toLocaleLowerCase().includes(searchText.toLowerCase())
+          )
+        : null;
+    });
   };
 
   return (
@@ -43,7 +52,7 @@ const SearchPage = () => {
         </div>
       ) : (
         <ul className="flex flex-wrap gap-1">
-          <DisplayPlayers players={players} searchText={searchText} />
+          <DisplayPlayers players={filteredPlayers} input="" />
         </ul>
       )}
     </div>

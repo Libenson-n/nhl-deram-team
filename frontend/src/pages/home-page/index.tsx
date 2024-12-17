@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import DisplayPlayers from "./display-players";
 import { teams } from "@/lib/teams";
-import DisplayBanner from "./display-banner";
 import PageNavigation from "@/components/page-navigation";
 import { Players } from "@/types";
 
@@ -100,8 +99,7 @@ const HomePage = () => {
       </div>
       {players && (
         <>
-          <DisplayBanner input={toggleBanner} players={players} />
-          <DisplayPlayers players={players} searchText="" />
+          <DisplayPlayers input={toggleBanner} players={players} />
         </>
       )}
       {toggleBanner === "position" && (
