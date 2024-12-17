@@ -23,24 +23,27 @@ const DisplayPlayers = ({ players, searchText }: DisplayPlayersProps) => {
           </tr>
         </thead>
         <tbody>
-          {players
-            .filter((player) =>
-              player.name.toLocaleLowerCase().includes(searchText.toLowerCase())
-            )
-            .map((player: Players, index) => (
-              <tr
-                key={player.name}
-                className={`border border-gray-400 text-center ${
-                  index % 2 === 0 ? "bg-slate-200" : "bg-white"
-                }`}
-              >
-                {Object.entries(player).map((player, index) => (
-                  <td key={index} className="border border-gray-200 p-1">
-                    {player[1]}
-                  </td>
-                ))}
-              </tr>
-            ))}
+          {searchText &&
+            players
+              .filter((player) =>
+                player.name
+                  .toLocaleLowerCase()
+                  .includes(searchText.toLowerCase())
+              )
+              .map((player: Players, index) => (
+                <tr
+                  key={player.name}
+                  className={`border border-gray-400 text-center ${
+                    index % 2 === 0 ? "bg-slate-200" : "bg-white"
+                  }`}
+                >
+                  {Object.entries(player).map((player, index) => (
+                    <td key={index} className="border border-gray-200 p-1">
+                      {player[1]}
+                    </td>
+                  ))}
+                </tr>
+              ))}
         </tbody>
       </table>
     </Card>
@@ -48,12 +51,3 @@ const DisplayPlayers = ({ players, searchText }: DisplayPlayersProps) => {
 };
 
 export default DisplayPlayers;
-
-{
-  /* <CardContent>
-              <p>Games played: {player.gamePlayed}</p>
-              <p>Goals: {player.goals}</p>
-              <p>Assists: {player.assists}</p>
-              <p>Points: {player.points}</p>
-            </CardContent> */
-}

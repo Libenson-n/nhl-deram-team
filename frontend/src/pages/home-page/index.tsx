@@ -70,7 +70,6 @@ const HomePage = () => {
             </li>
           ))}
         </ul>
-        {}
       </div>
       <div className="flex justify-between w-3/4 mx-auto">
         <Button

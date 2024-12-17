@@ -15,6 +15,7 @@ export const teams = [
   "MIN",
   "MTL",
   "NJD",
+  "NSH",
   "NYI",
   "NYR",
   "OTT",
